@@ -2,79 +2,62 @@
 import requests 
 import json
 import pandas as pd
-import pprint as pp
+import logging
 
-API_KEY = 'u7Z1bTQg9kAx6GLlp5Yl5_mF_8mcA8WbYswHaldMCyeY'
-API_URL = 'https://gateway.watsonplatform.net/language-translator/api'
-AUTH = ('apikey', API_KEY)
+class BluemixLanguageTranslator():
+    def __init__(self, api_url, api_key):
+        self.api_url = api_url
+        self.api_auth = ('apikey', api_key)
 
-"""
-## TRANSLATE TEXT ## 
-curl -X POST -u "apikey:{apikey}" 
-    --header "Content-Type: application/json" 
-    --data "{\"text\": [\"Hello, world! \", \"How are you?\"], \"model_id\":\"en-es\"}" 
-    "{url}/v3/translate?version=2018-05-01"
-"""
-def translate_text(input_text, model_id='en-es'):
-    headers = { 'Content-Type': 'application/json'}
-    data = json.dumps({'text': input_text.split('\n'), 'model_id': model_id})
-    rsp = requests.post(f"{API_URL}/v3/translate?version=2018-05-01", data=data, headers=headers, auth=AUTH)
-    json_rsp = rsp.json()
-    return json_rsp['translations'][0]['translation']
+    def make_bluemixlang_request(self, method, action, headers=None, data=None):
+        try:
+            return requests.request(method, f"{self.api_url}/v3/{action}?version=2018-05-01", data=data, headers=headers, auth=self.api_auth).json()
+        except Exception as e:
+            logging.error(f"Failed request to blumix with: URL: {self.api_url}/v3/{action}, DATA: {data}, HEADERS: {headers}")
+            raise e
 
-"""
-## IDENTIFY ## 
-curl -X POST -u "apikey:{apikey}" 
-    --header "Content-Type: text/plain" 
-    --data "Language Translator translates text from one language to another" 
-    "{url}/v3/identify?version=2018-05-01"
-"""
-def identify_language(input_text):
-    headers = { 'Content-Type': 'text/plain'}
-    rsp = requests.post(f"{API_URL}/v3/identify?version=2018-05-01", data=input_text.encode('utf-8'), headers=headers, auth=AUTH)
-    json_rsp = rsp.json()
-    return json_rsp['languages'][0]['language']
+    def translate_text(self, input_text, model_id='en-es'):
+        """
+        Applies text translation to input_text based on translation model_id passed 
+        https://cloud.ibm.com/apidocs/language-translator/language-translator#translate
+        input_text -- Text to translate
+        model_id -- Translation model to use, string '{source}-{target}' language code 
+        returns None if translation not found
+        """
+        headers = { 'Content-Type': 'application/json'}
+        data = json.dumps({'text': input_text, 'model_id': model_id})
+        result = self.make_bluemixlang_request('post', 'translate', headers, data)
+        return None if 'translations' not in result else result['translations'][0]['translation']
 
-# TODO: Not needed
-#def identify_and_translate(input_text, translate_to='en'):
-#    language = identify_language(input_text)
-#    return translate_text(input_text, model_id=f"{language}-{translate_to}")
+    def identify_language(self, input_text):
+        """
+        Identifies the language based on source text 
+            https://cloud.ibm.com/apidocs/language-translator/language-translator#identify-language
+        input_text -- source text to identify language of
+        returns None if translation not found
+        """
+        headers = { 'Content-Type': 'text/plain'}
+        result = self.make_bluemixlang_request('post', 'identify', headers, data=input_text.encode('utf-8'))
+        return None if 'languages' not in result else result['languages'][0]['language']
 
-"""
-curl --user apikey:{apikey} "{url}/v3/models?version=2018-05-01"
-"""
-def get_available_language_models():
-    rsp = requests.get(f"{API_URL}/v3/models?version=2018-05-01", auth=AUTH)
-    return rsp.json()['models']
+    def get_available_language_models(self):
+        """
+        Returns list of available translation models on bluemix
+            https://cloud.ibm.com/apidocs/language-translator/language-translator#list-models
+        """
+        result = self.make_bluemixlang_request('get', 'models')
+        return result['models']
 
-"""
-curl --user apikey:{apikey} "{url}/v3/identifiable_languages?version=2018-05-01"
-"""
-def get_identifiable_languages():
-    rsp = requests.get(f"{API_URL}/v3/identifiable_languages?version=2018-05-01", auth=AUTH)
-    return rsp.json()['languages']
+    def get_identifiable_languages(self):
+        """
+        Returns a list of available languages 
+            https://cloud.ibm.com/apidocs/language-translator/language-translator#list-identifiable-languages
+        """
+        result = self.make_bluemixlang_request('get', 'identifiable_languages')
+        return result['languages']
 
-"""
-## DOCUMENT TRANSLATE ## 
-https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-document-translator-tutorial
-
-This is non blocking... wtf 
-"""
-
-#if __name__ == "__main__":
-#    m = get_available_language_models()
-#    l = get_identifiable_languages()
-#
-#    df = pd.DataFrame(languages).set_index('language')
-#    print(df)
-#
-#    def get_name(model):
-#        return df.loc[model]['name']
-#    
-#    print(get_name('en'))
-#    #result = []
-#    #for model in m:
-#    #    model['source_name'] = get_name(model['source'])
-#    #    model['target_name'] = get_name(model['target'])
-#    #    result.append(model)
-#    #pp.pprint(result)
+    """
+    TODO: Stretch Goal
+    def translate_document
+        https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-document-translator-tutorial
+    """
