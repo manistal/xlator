@@ -29,7 +29,7 @@ curl -X POST -u "apikey:{apikey}"
 """
 def identify_language(input_text):
     headers = { 'Content-Type': 'text/plain'}
-    rsp = requests.post(f"{API_URL}/v3/identify?version=2018-05-01", data=input_text, headers=headers, auth=AUTH)
+    rsp = requests.post(f"{API_URL}/v3/identify?version=2018-05-01", data=input_text.encode('utf-8'), headers=headers, auth=AUTH)
     json_rsp = rsp.json()
     return json_rsp['languages'][0]['language']
 
@@ -38,8 +38,19 @@ def identify_and_translate(input_text, translate_to='en'):
     return translate_text(input_text, model_id=f"{language}-{translate_to}")
 
 """
+curl --user apikey:{apikey} "{url}/v3/models?version=2018-05-01"
+"""
+def get_available_language_models():
+    rsp = requests.post(f"{API_URL}/v3/models?version=2018-05-01", auth=AUTH)
+    json_rsp = rsp.json()
+    print(rsp.text)
+
+"""
 ## DOCUMENT TRANSLATE ## 
 https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-document-translator-tutorial
 
 This is non blocking... wtf 
 """
+
+if __name__ == "__main__":
+    print(get_available_language_models())
