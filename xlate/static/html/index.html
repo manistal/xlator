@@ -29,8 +29,8 @@
             <form action="{{ url_for('translator.translate_textbox') }}" method="post">
                 <!-- Language Selectors on top -->
                 <div class="row">
-                    <div class="col-3 lang-select-padding"></div>
-                    <div class="col-6 form-group">
+                    <div class="col-4 lang-select-padding"></div>
+                    <div class="col-4 form-group">
                         <select class="custom-select" name="language_model">
                             <option value="detect" selected>Detect</option>
                             {% for lang in language_selections %}
@@ -38,14 +38,18 @@
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="col-3 lang-select-padding"></div>
+                    <div class="col-4 lang-select-padding"></div>
                 </div>
 
                 <!-- Text Areas for Source and Target Text -->
                 <div class="row">
-                    <div class="col-5 form-group">
-                        <textarea name="translation_text" class="form-control" id="translation-textarea" rows="10">{{ original_text }}</textarea>
-                        <button type="submit" class="btn btn-primary" style="padding: 10px;">XLATE</button>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <textarea name="translation_text" class="form-control" id="translation-textarea" rows="10">{{ original_text }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="padding: 20px;">XLATE</button>
+                        </div>
                     </div>
                     <div class="col-2 lang-select-padding" style="text-align: center; display: block; font-size: 48px;"> 
                         <i class="fas fa-exchange-alt"></i> 
