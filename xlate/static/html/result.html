@@ -21,37 +21,15 @@
             <!-- Welcome Text --> 
             <div class="row">
                 <div class="col welcome-text">
-		            Welcome to the Xlator! <br>Enter your text or a document below to get started.
+		            Here's your translation! 
                 </div>
             </div>
 
-            <!-- Input Blocks -->
+            <!-- Result -->
             <div class="row">
-                <!-- Text Area with Language Detect -->
-                <div class="col">
-                    <form action="{{ url_for('translator.translate_textbox') }}" method="post">
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <textarea name="translation_text" class="form-control" id="translation-textarea" rows="10"></textarea>
-                        </div>
-		                <button type="submit" class="btn btn-primary">XLATE</button>
-                    </form>
+                <div class="col result-text">
+                    <p>{{ result }}</p>
                 </div>
-
-                <!-- Divider -->
-                <div class="col" style="text-align: center; display: block;"> OR </div>
-
-                <!-- File Uploader -->
-                <div class="col">
-                    <form action="{{ url_for('translator.translate_file') }}" method="post">
-                        <div class="form-group">
-                            <label for="exampleFormControlFile1">Example file input</label>
-                            <input name="translation_file" type="file" class="form-control-file" id="translation-fileupload">
-                        </div>
-	                    <button type="submit" class="btn btn-primary">XLATE</button>
-                    </form>
-                </div>
-
             </div>
         </div>
     </body>
