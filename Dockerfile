@@ -1,14 +1,7 @@
-FROM ubuntu:16.04
+FROM tiangolo/uwsgi-nginx-flask:python3.7
 
-RUN apt-get update 
-RUN apt-get install -y build-essential python-pip python-dev
-RUN pip install --upgrade pip
+COPY . /app
+WORKDIR /app
 
-RUN mkdir -p /opt/microservices
-ADD . /opt/microservices
-RUN pip install -r /opt/microservices/requirements.txt
+RUN pip3 install -r ./requirements.txt
 
-WORKDIR /opt/microservices
-EXPOSE 5000
-
-CMD python server.py
