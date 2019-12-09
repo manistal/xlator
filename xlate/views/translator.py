@@ -40,7 +40,7 @@ def translate_textbox():
     blt = BluemixLanguageTranslator(current_app.config['BLUEMIX_API_URL'], current_app.config['BLUEMIX_API_KEY'])
     original_text = request.form.get('translation_text')
     language_model = request.form.get('language_model', 'detect')
-    if 'detect' in source_language.lower():
+    if 'detect' in language_model.lower():
         source_language = blt.identify_language(original_text)
         language_model = f"{source_language}-en"
     result_text = blt.translate_text(original_text, model_id=language_model)
