@@ -8,5 +8,5 @@ services:
       - BLUEMIX_API_KEY=${BLUEMIX_API_KEY}
       - BLUEMIX_API_URL=${BLUEMIX_API_URL}
     ports:
-      - "9090:9090"
+      - "80:9090"
     restart: unless-stopped
