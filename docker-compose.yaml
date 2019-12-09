@@ -1,18 +1,12 @@
-version: '3.6'
+version: '3.7'
 
 services:
-  redis:
-    image: redis:alpine
-    ports:
-      - "6379:6379"
-    restart: unless-stopped
-
-  myservice:
+  xlate:
     build: .
-    image: myservice
+    image: xlate
     environment:
-      - REDIS_ADDR=redis
-      - REDIS_PORT=6379
+      - BLUEMIX_API_KEY=${BLUEMIX_API_KEY}
+      - BLUEMIX_API_URL=${BLUEMIX_API_URL}
     ports:
-      - "5000:5000"
+      - "9090:9090"
     restart: unless-stopped
