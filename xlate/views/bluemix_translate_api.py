@@ -1,7 +1,6 @@
 
 import requests 
 import json
-import pandas as pd
 import logging
 
 class BluemixLanguageTranslator():
