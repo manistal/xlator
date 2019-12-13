@@ -8,7 +8,7 @@ Xlate is a language translation application that leverages Bluemix Language Tran
 You can find information about the Bluemix Language Translator here, as well as how to get an API Key and get started here:
 https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted
 
-You can find the xlate implementation of the API here: [bluemix_translation_api.py](xlate/views/bluemix_translation_api.py)
+You can find the xlate implementation of the API here: [bluemix_translation_api.py](xlate/views/bluemix_translate_api.py)
 
 ### Web Application
 
