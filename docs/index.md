@@ -1,5 +1,5 @@
-Hello World\!
+# The XLate Application 
 
-[API Docs](apidoc.html)
+[API Docs](build/html/index.html)
 
 
