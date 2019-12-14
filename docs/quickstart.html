@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; XLate  documentation</title>
+  <title>Quickstart &mdash; XLate  documentation</title>
   
 
   
@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -35,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="apidoc.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -62,7 +63,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -79,10 +80,14 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="depmodel.html">Development and Deployment Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#development-and-deployment-model">Development and Deployment Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#standalone-python-app-with-flask-debug">Standalone Python App with Flask Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uwsgi-with-docker-compose">UWSGI with Docker-Compose</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="apidoc.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apidoc.html#indices-and-tables">Indices and tables</a></li>
 </ul>
@@ -130,12 +135,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Quickstart</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -147,24 +154,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<p>To develop or contribute to Xlate, you can get started once you register for a Bluemix API key and URL (follow the instructions [here](<a class="reference external" href="https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted">https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted</a>))</p>
+<p>There are two ways to run the application:</p>
+<div class="section" id="standalone-python-app-with-flask-debug">
+<h2>Standalone Python App with Flask Debug<a class="headerlink" href="#standalone-python-app-with-flask-debug" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">BLUEMIX_API_KEY=&quot;&lt;KEY&gt;&quot;</span> <span class="pre">BLUEMIX_API_URL=&quot;&lt;URL&gt;&quot;</span> <span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">xlate</span></code></p>
+</div>
+<div class="section" id="uwsgi-with-docker-compose">
+<h2>UWSGI with Docker-Compose<a class="headerlink" href="#uwsgi-with-docker-compose" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">BLUEMIX_API_KEY=&quot;&lt;KEY&gt;&quot;</span> <span class="pre">BLUEMIX_API_URL=&quot;&lt;URL&gt;&quot;</span> <span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">--build</span></code></p>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apidoc.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -197,14 +214,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
