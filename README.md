@@ -15,6 +15,10 @@ You can find the xlate implementation of the API here: [bluemix_translation_api.
 The front-end is a web application based in Flask, you can find more information about Flask here:
 https://www.palletsprojects.com/p/flask/
 
+### Architecture 
+
+![ArchDiagram](docs/MSCS621_Xlate_ArchDiagram.png)
+
 ## Development
 
 To develop or contribute to Xlate, you can get started once you register for a Bluemix API key and URL (follow the instructions [here](https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted))
