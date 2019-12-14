@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Reference &mdash; XLate  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> XLate
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#development-and-deployment-model">Development and Deployment Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-views.translator">translator.py (Flask Web Routing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-views.bluemix_translate_api">Bluemix Language Translate API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">XLate</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apidoc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-views.translator">
+<span id="translator-py-flask-web-routing"></span><h2>translator.py (Flask Web Routing)<a class="headerlink" href="#module-views.translator" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="views.translator.get_language_selections">
+<code class="sig-prename descclassname">views.translator.</code><code class="sig-name descname">get_language_selections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#views.translator.get_language_selections" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Utility function that generates the available language translation options</dt><dd><p>Queries Bluemix for language models and language names, transforms language model response with real names</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="views.translator.index">
+<code class="sig-prename descclassname">views.translator.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#views.translator.index" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Base application view, serves all HTML back to the client </dt><dd><p>Accepts query args from HTTP redirect as response from the POST method on ‘translate_textbox’</p>
+</dd>
+</dl>
+<p>original_text – Original translation text to re-render 
+result_text – Translated text returned from bluemix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="views.translator.translate_textbox">
+<code class="sig-prename descclassname">views.translator.</code><code class="sig-name descname">translate_textbox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#views.translator.translate_textbox" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Services POST form submission from the base webpage </dt><dd><p>Recieves text from the Form, applies transformation from Bluemix API and redirects back to HTML Serve Function</p>
+</dd>
+</dl>
+<p>original_text – Text to be translated from web form
+language_model – Selected translation model from web form</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-views.bluemix_translate_api">
+<span id="bluemix-language-translate-api"></span><h2>Bluemix Language Translate API<a class="headerlink" href="#module-views.bluemix_translate_api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="views.bluemix_translate_api.BluemixLanguageTranslator">
+<em class="property">class </em><code class="sig-prename descclassname">views.bluemix_translate_api.</code><code class="sig-name descname">BluemixLanguageTranslator</code><span class="sig-paren">(</span><em class="sig-param">api_url</em>, <em class="sig-param">api_key</em><span class="sig-paren">)</span><a class="headerlink" href="#views.bluemix_translate_api.BluemixLanguageTranslator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Bluemix API Context Class </dt><dd><p>Construction provides an API context with an API Key and URL
+Subsequent actions will use the context provided to the constructor</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="views.bluemix_translate_api.BluemixLanguageTranslator.get_available_language_models">
+<code class="sig-name descname">get_available_language_models</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#views.bluemix_translate_api.BluemixLanguageTranslator.get_available_language_models" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Returns list of available translation models on bluemix</dt><dd><p><a class="reference external" href="https://cloud.ibm.com/apidocs/language-translator/language-translator#list-models">https://cloud.ibm.com/apidocs/language-translator/language-translator#list-models</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="views.bluemix_translate_api.BluemixLanguageTranslator.get_identifiable_languages">
+<code class="sig-name descname">get_identifiable_languages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#views.bluemix_translate_api.BluemixLanguageTranslator.get_identifiable_languages" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Returns a list of available languages </dt><dd><p><a class="reference external" href="https://cloud.ibm.com/apidocs/language-translator/language-translator#list-identifiable-languages">https://cloud.ibm.com/apidocs/language-translator/language-translator#list-identifiable-languages</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="views.bluemix_translate_api.BluemixLanguageTranslator.identify_language">
+<code class="sig-name descname">identify_language</code><span class="sig-paren">(</span><em class="sig-param">input_text</em><span class="sig-paren">)</span><a class="headerlink" href="#views.bluemix_translate_api.BluemixLanguageTranslator.identify_language" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Identifies the language based on source text </dt><dd><p><a class="reference external" href="https://cloud.ibm.com/apidocs/language-translator/language-translator#identify-language">https://cloud.ibm.com/apidocs/language-translator/language-translator#identify-language</a></p>
+</dd>
+</dl>
+<p>input_text – source text to identify language of
+returns None if translation not found</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="views.bluemix_translate_api.BluemixLanguageTranslator.make_bluemixlang_request">
+<code class="sig-name descname">make_bluemixlang_request</code><span class="sig-paren">(</span><em class="sig-param">method</em>, <em class="sig-param">action</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#views.bluemix_translate_api.BluemixLanguageTranslator.make_bluemixlang_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common Utility Function to make requests to the Bluemix API within the current context 
+method – HTTP Method to invoke
+action – Bluemix API Call 
+headers – HTTP Headers to use (optional)
+data – HTTP Data to send in method (optional)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="views.bluemix_translate_api.BluemixLanguageTranslator.translate_text">
+<code class="sig-name descname">translate_text</code><span class="sig-paren">(</span><em class="sig-param">input_text</em>, <em class="sig-param">model_id='en-es'</em><span class="sig-paren">)</span><a class="headerlink" href="#views.bluemix_translate_api.BluemixLanguageTranslator.translate_text" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Applies text translation to input_text based on translation model_id passed </dt><dd><p><a class="reference external" href="https://cloud.ibm.com/apidocs/language-translator/language-translator#translate">https://cloud.ibm.com/apidocs/language-translator/language-translator#translate</a></p>
+</dd>
+</dl>
+<p>input_text – Text to translate
+model_id – Translation model to use, string ‘{source}-{target}’ language code 
+returns None if translation not found</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Miguel A Nistal
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

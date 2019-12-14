@@ -6,6 +6,8 @@
 Welcome to the XLate documentation!
 =====================================
 
+XLate is a Lightweight text translation front-end for IBM's Watson Language Translator. 
+
 .. toctree::
    :maxdepth: 2
 
@@ -14,7 +16,6 @@ Welcome to the XLate documentation!
    depmodel
    apidoc
 
-.. include:: overview.rst
 .. include:: quickstart.rst
 
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; XLate  documentation</title>
+  <title>Development and Deployment Model &mdash; XLate  documentation</title>
   
 
   
@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -35,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="apidoc.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -62,7 +63,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -79,10 +80,14 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="depmodel.html">Development and Deployment Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development and Deployment Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#development">Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deployment">Deployment</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="apidoc.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apidoc.html#indices-and-tables">Indices and tables</a></li>
 </ul>
@@ -130,12 +135,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Development and Deployment Model</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/depmodel.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -147,24 +154,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="development-and-deployment-model">
+<h1>Development and Deployment Model<a class="headerlink" href="#development-and-deployment-model" title="Permalink to this headline">¶</a></h1>
+<p>The development and deployment processes leverages Docker to guaruntee quality releases.</p>
+<img alt="_images/MSCS621_Xlate_ArchDiagram.png" src="_images/MSCS621_Xlate_ArchDiagram.png" />
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<p>For development, install Docker and Docker Compose. We use Docker Compose to get a full Nginx-Flask-UWSGI environment running, to ensure that traffic to the application always operates the same.
+Deployment is critical with Flask applications as you must have a WSGI server like GUnicorn or UWSGI in order to prevent yourself from exposing the debug mode directly.
+Docker Compose allows us to emulate real deployments and guaruntee the integrity of deployments on release.</p>
+<p>To run the release environment, simply invoke the <code class="docutils literal notranslate"><span class="pre">build</span></code> arg to <code class="docutils literal notranslate"><span class="pre">up</span></code> from the root of the project:</p>
+<p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">--build</span></code></p>
+<img alt="../MSCS621_Xlate_DockerComposeConsole.png" src="../MSCS621_Xlate_DockerComposeConsole.png" />
+</div>
+<div class="section" id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apidoc.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -197,14 +218,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
