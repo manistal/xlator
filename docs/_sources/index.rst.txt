@@ -9,9 +9,18 @@ Welcome to the XLate documentation!
 .. toctree::
    :maxdepth: 1
 
+   :ref:`overview`
+   :ref:`getting-started`
    bluemix_translate_api
    translator
 
+.. _overview:
+Overview 
+==========
+
+Some information is in here
+
+.. _getting-started:
 Getting Started 
 ==================
 
