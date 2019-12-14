@@ -4,11 +4,23 @@ import json
 import logging
 
 class BluemixLanguageTranslator():
+    """
+    Bluemix API Context Class 
+        Construction provides an API context with an API Key and URL
+        Subsequent actions will use the context provided to the constructor
+    """
     def __init__(self, api_url, api_key):
         self.api_url = api_url
         self.api_auth = ('apikey', api_key)
 
     def make_bluemixlang_request(self, method, action, headers=None, data=None):
+        """
+        Common Utility Function to make requests to the Bluemix API within the current context 
+        method -- HTTP Method to invoke
+        action -- Bluemix API Call 
+        headers -- HTTP Headers to use (optional)
+        data -- HTTP Data to send in method (optional)
+        """
         try:
             return requests.request(method, f"{self.api_url}/v3/{action}?version=2018-05-01", data=data, headers=headers, auth=self.api_auth).json()
         except Exception as e:
@@ -18,7 +30,7 @@ class BluemixLanguageTranslator():
     def translate_text(self, input_text, model_id='en-es'):
         """
         Applies text translation to input_text based on translation model_id passed 
-        https://cloud.ibm.com/apidocs/language-translator/language-translator#translate
+            https://cloud.ibm.com/apidocs/language-translator/language-translator#translate
         input_text -- Text to translate
         model_id -- Translation model to use, string '{source}-{target}' language code 
         returns None if translation not found
@@ -54,9 +66,3 @@ class BluemixLanguageTranslator():
         """
         result = self.make_bluemixlang_request('get', 'identifiable_languages')
         return result['languages']
-
-    """
-    TODO: Stretch Goal
-    def translate_document
-        https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-document-translator-tutorial
-    """
