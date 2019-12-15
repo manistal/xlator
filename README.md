@@ -17,7 +17,11 @@ https://www.palletsprojects.com/p/flask/
 
 ### Architecture 
 
-![ArchDiagram](docs/MSCS621_Xlate_ArchDiagram.png)
+![ArchDiagram](docs/_images/MSCS621_Xlate_ArchDiagram.png)
+
+### Documentation
+
+https://manistal.github.io/marist-mscs621-2019-manistal/apidoc.html
 
 ## Development
 
