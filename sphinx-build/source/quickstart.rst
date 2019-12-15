@@ -1,7 +1,9 @@
 Quickstart
 ==================
 
-To develop or contribute to Xlate, you can get started once you register for a Bluemix API key and URL (follow the instructions [here](https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted))
+To develop or contribute to Xlate, you can get started once you register for a Bluemix API key: 
+
+https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted
 
 There are two ways to run the application:
 

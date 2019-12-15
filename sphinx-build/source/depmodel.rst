@@ -24,12 +24,13 @@ To run the release environment, simply invoke the ``build`` arg to ``up`` from t
 Deployment
 ^^^^^^^^^^^^
 
-Deployment is just as easy, all you need is to deploy the image itself. 
+Deployment is just as easy, all you need is to deploy the image itself. Just connect Dockerhub to GitHub and configure it to build image on push. 
 
-``docker push``
+.. image:: ../MSCS621_Xlate_DockerHub.png
 
-.. image:: ../MSCS621_Xlate_DockerPushConsole.png
 
-``docker run image``
+Once Dockerhub has built the image, you can use it from any instance with:
+
+``docker pull manistal/xlate:latest``
 
 .. image:: ../MSCS621_Xlate_DockerRunConsole.png

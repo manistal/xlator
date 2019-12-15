@@ -16,6 +16,8 @@ XLate is a Lightweight text translation front-end for IBM's Watson Language Tran
    depmodel
    apidoc
 
+.. image:: ../MSCS621_Xlate_Deployed.png
+
 .. include:: quickstart.rst
 
 

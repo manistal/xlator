@@ -165,10 +165,15 @@ Deployment is critical with Flask applications as you must have a WSGI server li
 Docker Compose allows us to emulate real deployments and guaruntee the integrity of deployments on release.</p>
 <p>To run the release environment, simply invoke the <code class="docutils literal notranslate"><span class="pre">build</span></code> arg to <code class="docutils literal notranslate"><span class="pre">up</span></code> from the root of the project:</p>
 <p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span> <span class="pre">--build</span></code></p>
-<img alt="../MSCS621_Xlate_DockerComposeConsole.png" src="../MSCS621_Xlate_DockerComposeConsole.png" />
+<img alt="_images/MSCS621_Xlate_DockerComposeConsole.png" src="_images/MSCS621_Xlate_DockerComposeConsole.png" />
 </div>
 <div class="section" id="deployment">
 <h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<p>Deployment is just as easy, all you need is to deploy the image itself. Just connect Dockerhub to GitHub and configure it to build image on push.</p>
+<img alt="_images/MSCS621_Xlate_DockerHub.png" src="_images/MSCS621_Xlate_DockerHub.png" />
+<p>Once Dockerhub has built the image, you can use it from any instance with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">manistal/xlate:latest</span></code></p>
+<img alt="_images/MSCS621_Xlate_DockerRunConsole.png" src="_images/MSCS621_Xlate_DockerRunConsole.png" />
 </div>
 </div>
 
