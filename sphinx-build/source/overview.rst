@@ -26,7 +26,7 @@ Future development will focus on providing an API blueprint to go along with the
 You can find more information about ``Flask``:    
 https://www.palletsprojects.com/p/flask/
 
-**Blumix API**
+**Bluemix API**
 
 The back-end is a simple class that provides an API Context for the IBM Cloud connection, leveraging the python library 'requests', and IBMs RESTful API. 
 
